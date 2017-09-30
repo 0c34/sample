@@ -4,6 +4,8 @@
             <title>Happy Birthday</title>
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             <script src="typed/lib/typed.min.js" type="text/javascript"></script>
+            <script src="lightslider-master/src/js/lightslider.js" type="text/javascript"></script>
+            <link rel="stylesheet"  href="lightslider-master/src/css/lightslider.css"/>
         </head>
         <style>
             /* If you can't see it just hit space in here*/
@@ -272,18 +274,39 @@
                 font-size: 3.5em;
             }
             .typed-wrapper{
-                background-image: url("img/2.gif");
-                width: 600px;
+                background-image: url("imgs/2.gif");
+                width: 580px;
                 height: 200px;
                 position: relative;
                 margin: auto;
                 padding-top: 50px;
                 padding-left: 100px;
+                margin-bottom: 50px;
                 
             }
             .typed{
                 font-size: 1em;
                 color: black;
+            }
+            .slide-wrapper{
+                padding-left: 110px;
+                width: 600px;
+                height: 200px;
+                position: relative;
+                margin: auto;
+                margin-bottom: 20px;
+                
+                
+            }
+            .clearfix{
+                border: solid 1px #CCC;
+                -moz-box-shadow: 5px 5px 0px #999;
+                -webkit-box-shadow: 5px 5px 0px #999;
+                    box-shadow: 5px 5px 0px #999;
+            }
+            .slide-img{
+                width: 474px;
+                height: 400px;
             }
         </style>
         <script>
@@ -297,16 +320,41 @@
          <script>
                 $(document).ready(function(){
                 var options = {
-                    strings : ['<bold>Halo</bold>^1000\nApa kabar?^1000\nkamu udah makan belom?..'],
+                    strings : ['^3000 <strong>Dear^1000\n   My Bunny Teeth..^5000\n\nHappy Birthday ya..^2000\nHadiah sederhana ini ku persembahkan buat kmu.!^1000\nSemoga kamu suka ya.^500 Dan semoga diusia kmu yg ke-18 ini^1000\nKamu:^500\n-Tambah Dewasa^500\n-Dilimpahkan rezkinya</strong>',
+                                '<strong>-Dimudahkan segala urusannya^500\n-dan diberikan kesehatan dan umur panjang, Amiin^3000\n\nRasanya belum lama mengenalmu tapi, entah kenapa,,^1000 kenapa ya??^3000\nAde aku merasa sangat sangat tidak pantas buat kamu,^1000 karena itu aku^1000\nmemilih untuk tidak ketemu kmu^500. Semoga kehendak Allah berkata^500\nlain dan suatu hari kita dipertemukan.^1000\nBanyak hal yang ingin kulakukan bersama kamu, tapi itu semua\nhanya angan2 semata</strong>',
+                                '<strong>Ade aku minta maaf karena membuat kamu sedih di hari ulang\ntahunmu, ^3000 Aku pengen kamu bahagia, dan menemukan yang terbaik\nbuat dirimu.^1000\nApapun itu aku selalu berharap yang terbaik yang akan terjadi^2000 </strong>',
+                                '<strong>Ade terima kasih sudah membuat hari hari ku ceria kembali :\'(^5000\naku akan selalu berdoa dan bersabar semoga hari itu datang^3000 </strong>',
+                                '<strong>Ade aku bikin hadiah ini dalam keadaan kurang sehat,^2000\nmaaf ya kalo hadiahnya jelek.^2000\nKamu jaga kesehatan ya, ^500 maaf kalo aku sering\ningetin masalah kesehatan^1000 karena sakit itu ga enak.^1000 </strong>',
+                                '<strong>Trakhir dari aku,, ^2000<i>aku sangat bahagia bisa mengenalmu..</i>\n\n\n <i>Dengerin Musiknya sampe habis ya</i>. by s.o.y^40000 </strong>'],
                     typeSpeed:100,
                     backSpeed: 0,
                     smartBackspace : true,
                     loop: true
                 }
                 var typed = new Typed(".typed", options);
-            })
+                });
         </script>
-
+        <script>
+             window.addEventListener('load', function () {
+                var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                var source = audioCtx.createBufferSource();
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'audio/y-kiss.mp3');
+                xhr.responseType = 'arraybuffer';
+                xhr.addEventListener('load', function (r) {
+                    audioCtx.decodeAudioData(
+                            xhr.response, 
+                            function (buffer) {
+                                source.buffer = buffer;
+                                source.connect(audioCtx.destination);
+                                source.loop = false;
+                            });
+                source.start(0);
+            });
+            xhr.send();
+    })
+        </script>
+        <meta http-equiv="refresh" content="255;url=https://previews.123rf.com/images/tribalium123/tribalium1231301/tribalium123130100028/17422980-happy-birthday-18-happy-birthday-party-happy-birthday-design-happy-18-th-birthday-Stock-Vector.jpg" />
         <meta content="clickberry-extension-here">
         <meta content="clickberry-extension-here">
         <style type="text/css"></style>
